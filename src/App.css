@@ -1,0 +1,28 @@
+.App-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.App-Content {
+  width: calc(100% - 4rem);
+  min-height: 100vh;
+}
+
+.Stream-Application {
+  width: 100%;
+}
+
+.Stream-Card {
+  width: 20rem;
+  margin: 0.5rem;
+}
+
+.Stream-Cards {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
