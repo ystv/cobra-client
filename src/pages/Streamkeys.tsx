@@ -174,7 +174,7 @@ function AddKeyTab() {
           {`rtmp://${process.env.REACT_APP_RTMP}/${
             process.env.REACT_APP_RTMP_INPUT_APPLICATION
           }/${data.addStreamKey.streamKey}${
-            data.addStreamKey.pwd ? `pwd=${data.addStreamKey.pwd}` : ""
+            data.addStreamKey.pwd ? `?pwd=${data.addStreamKey.pwd}` : ""
           }`}
         </Typography.Link>
       ) : (
@@ -186,7 +186,7 @@ function AddKeyTab() {
             process.env.REACT_APP_RTMP_INPUT_APPLICATION
           }/${genPwdData.addGenPwdStreamKey.streamKey}${
             genPwdData.addGenPwdStreamKey.pwd
-              ? `pwd=${genPwdData.addGenPwdStreamKey.pwd}`
+              ? `?pwd=${genPwdData.addGenPwdStreamKey.pwd}`
               : ""
           }`}
         </Typography.Link>
