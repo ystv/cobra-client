@@ -26,7 +26,7 @@ function App() {
     <Layout>
       <Header className="light-header" style={{ padding: "0 25px" }}>
         <Menu mode="horizontal" defaultSelectedKeys={defaultSelectedKey()}>
-          <Menu.Item disabled style={{ width: "100px", margin: 0 }}>
+          <Menu.Item key={"0"} disabled style={{ width: "100px", margin: 0 }}>
             <img src="/cobra.svg" alt="" />
           </Menu.Item>
           <Menu.Item key="1">

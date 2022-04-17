@@ -20,7 +20,11 @@ import { getMainDefinition } from "@apollo/client/utilities";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { tokenRefresh } from "./commonFunctions";
 
-const httpLink = new HttpLink();
+const httpLink = new HttpLink({
+  headers: {
+    "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
+  },
+});
 
 const wsLink = new WebSocketLink({
   uri: `ws${process.env.REACT_APP_SECURE === "true" ? "s" : ""}://${
@@ -61,9 +65,6 @@ const masterLink = from([link, splitLink]);
 const client = new ApolloClient({
   link: masterLink,
   cache: new InMemoryCache(),
-  headers: {
-    "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
-  }
 });
 
 ReactDOM.render(
