@@ -59,6 +59,9 @@ export function ConvertMinutes(num: any) {
 export function tokenRefresh() {
   fetch(`https://${process.env.REACT_APP_SECURITY_ENDPOINT}/api/set_token`, {
     credentials: "include",
+  }).then(e=>e.json()).then((e) => {
+      sessionStorage.setItem("token", e.token);
+      Promise.resolve();
   }).catch(
     (e) =>
       (window.location.href = `http://${process.env.REACT_APP_SECURITY_ENDPOINT}/?callback=${window.location.href}`)

@@ -28,6 +28,9 @@ const wsLink = new WebSocketLink({
   }/graphql`,
   options: {
     reconnect: true,
+    connectionParams: {
+      authToken: `Bearer ${sessionStorage.getItem("token")}`,
+    },
   },
 });
 
@@ -58,7 +61,9 @@ const masterLink = from([link, splitLink]);
 const client = new ApolloClient({
   link: masterLink,
   cache: new InMemoryCache(),
-  credentials: "include",
+  headers: {
+    "Authorization": `Bearer ${sessionStorage.getItem("token")}`,
+  }
 });
 
 ReactDOM.render(
